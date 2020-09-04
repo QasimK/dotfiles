@@ -1,0 +1,21 @@
+# Sublime
+*.sublime-project
+*.sublime-workspace
+.anaconda
+
+# Direnv
+.envrc
+
+# Vim
+*~
+*.swp
+*.swo
+
+# JetBrains
+.idea/
+
+# Python
+venv/
+
+# Jupyter
+jupyter/

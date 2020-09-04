@@ -1,0 +1,9 @@
+# Show surrounding lines
+alias ll u;;d;;l
+a
+# Easily enter IPython for multi-line commands
+alias ipy from IPython import embed; embed()
+# Print instance variables (usage "pi classInst")
+alias pi for k in %1.__dict__.keys(): print("%1.",k,"=",%1.__dict__[k])
+# Print instance variables in self
+alias ps pi self

@@ -1,0 +1,16 @@
+VISUAL=/usr/bin/vim
+# PAGER=/usr/bin/most
+# TERMINAL=/usr/bin/termite
+
+# Ignore dotfiles .git repo
+GIT_CEILING_DIRECTORIES DEFAULT=@{HOME}
+
+# XDG Base Directories
+XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
+XDG_CACHE_HOME  DEFAULT=@{HOME}/.cache
+XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
+XDG_DATA_DIRS   DEFAULT=/usr/local/share:/usr/share
+XDG_CONFIG_DIRS DEFAULT=/etc/xdg
+
+# Conform to XDG Base Directories spec
+GNUPGHOME       DEFAULT=${XDG_DATA_HOME}/gnupg

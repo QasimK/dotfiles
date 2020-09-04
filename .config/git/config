@@ -1,0 +1,27 @@
+[alias]
+	# List aliases
+	alias = config --get-regexp ^alias\\.
+
+	# Usage: git stash-rename stash@{2} Nuke-Files
+	stash-rename = "!_() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1 ; git diff-index --quiet HEAD; s=$?; [ $s != 0 ] && git stash save \"tmp stash from stash-rename\"; git stash apply $rev && shift && git stash save \"$@\" && [ $s != 0 ] && git stash pop stash@{1}; }; _"
+
+	where = branch --show-current
+	
+	# git annotate ignoring formatting changes
+	slap = blame -w -M
+
+	tree = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+        # Delete branches merged into master (note: remote branch should be deleted remotely on merge)
+	sweep = !git fetch origin master && (git branch --merged origin/master | grep -F -v \"master\" | grep -F -v \"develop\" | sed s:origin/:: | xargs -t -n 1 git branch -d) && git remote prune origin
+[push]
+	default = simple
+[commit]
+	template = ~/.config/git/commit.template
+[core]
+	hooksPath = ~/.config/git/hooks
+[rerere]
+	enabled = true
+	autoupdate = true
+[include]
+	path = config.local
