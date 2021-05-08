@@ -4,7 +4,7 @@
 !/DESKTOP.md
 !-i
 
-!.pam_environment
+!.pam_environment.example
 !.inputrc
 !.pdbrc
 !.pypirc
