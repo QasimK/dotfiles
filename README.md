@@ -25,6 +25,10 @@ Host-specific configuration is possible with branches and rebasing.
 
 *TODO: Secure repository with GPG.*
 
+## .pam_environment
+
+A copy of .pam_environment.example should be made with the appropriate modifications.
+
 ## Bash
 
 Requires further configuration:
