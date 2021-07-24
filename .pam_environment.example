@@ -1,4 +1,4 @@
-EDITOR=/usr/bin/vim
+# EDITOR=/usr/bin/vim
 # VISUAL=/usr/bin/vim
 # PAGER=/usr/bin/most
 # TERMINAL=/usr/bin/termite
