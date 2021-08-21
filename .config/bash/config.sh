@@ -1,3 +1,7 @@
+# alias ls='ls --color=auto'
+# Set prompt
+PS1='[\u@\h \W]\$ '
+
 export HISTFILESIZE=99999
 export HISTSIZE=99999
 
@@ -51,4 +55,4 @@ export PATH="$HOME/.rustup:$HOME/.cargo/bin:${PATH}"
 export PATH="$HOME/.rvm/bin:${PATH}"
 
 # Aliases
-source aliases.sh
+source "${XDG_CONFIG_HOME:-$HOME/.config}/bash/aliases.sh"
