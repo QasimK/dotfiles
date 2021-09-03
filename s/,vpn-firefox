@@ -1,0 +1,3 @@
+#!/usr/bin/dash
+# Start Firefox in a VPN
+exec vpnboxe firefox -P vpn -no-remote -new-instance -private-window "${1-https://duckduckgo.com/?q=my+ip&ia=answer}"
