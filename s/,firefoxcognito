@@ -4,5 +4,5 @@
 set -eu
 
 PROFILEDIR=$(mktemp -p /tmp -d tmp-ff-profile.XXXXXX.d)
-firefox -profile "$PROFILEDIR" -no-remote -new-instance
-rm -rf "$PROFILEDIR"
+trap 'rm -rf "$PROFILEDIR"' EXIT HUP INT QUIT TERM
+firefox -profile "$PROFILEDIR" -no-remote -new-instance -private-window
