@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Remove Python cache files from the current directory
+exec find . \( -type f -name \*.pyc \) -or \( -type d -name __pycache__ \) -delete

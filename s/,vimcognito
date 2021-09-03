@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+# Run vim without leaving traces
+
+# -i NONE - no config file
+# -u DEFAULTS - default init
+# -U DEFAULTS - default GUI init
+exec vim -i NONE -u DEFAULTS -U DEFAULTS -n --noplugin --cmd 'set noswapfile' --cmd 'set nobackup' --cmd 'set nowritebackup' --cmd 'set noundofile' "$@"

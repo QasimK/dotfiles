@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+# Rotate entered text by 13
+exec tr 'A-Za-z' 'N-ZA-Mn-za-m'

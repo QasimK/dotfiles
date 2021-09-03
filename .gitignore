@@ -10,6 +10,8 @@
 !.pypirc
 !.tmux.conf
 
+!s/
+
 !.ssh/
 .ssh/*
 !.ssh/config
@@ -23,6 +25,7 @@
 !.config/fish/
 .config/fish/fishd.*
 .config/fish/fish_variables
+!.config/fish/conf.d
 
 !.config/vim/
 
