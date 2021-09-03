@@ -7,11 +7,12 @@
 GIT_CEILING_DIRECTORIES DEFAULT=@{HOME}
 
 # XDG Base Directories
-XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
 XDG_CACHE_HOME  DEFAULT=@{HOME}/.cache
-XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
-XDG_DATA_DIRS   DEFAULT=/usr/local/share:/usr/share
 XDG_CONFIG_DIRS DEFAULT=/etc/xdg
+XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
+XDG_DATA_DIRS   DEFAULT=/usr/local/share:/usr/share
+XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
 
 # Conform to XDG Base Directories spec
 GNUPGHOME       DEFAULT=${XDG_DATA_HOME}/gnupg
+INPUTRC         DEFAULT=${XDG_CONFIG_HOME}/readline/inputrc
