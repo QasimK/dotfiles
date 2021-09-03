@@ -16,3 +16,4 @@ XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
 # Conform to XDG Base Directories spec
 GNUPGHOME       DEFAULT=${XDG_DATA_HOME}/gnupg
 INPUTRC         DEFAULT=${XDG_CONFIG_HOME}/readline/inputrc
+SQLITE_HISTORY  DEFAULT=${XDG_DATA_HOME}/sqlite/history

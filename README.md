@@ -29,6 +29,10 @@ Host-specific configuration is possible with branches and rebasing.
 
 A copy of .pam_environment.example should be made with the appropriate modifications.
 
+Requires further configuration:
+
+    mkdir -p ~/.local/share/sqlite
+
 ## Bash
 
 Requires further configuration:
