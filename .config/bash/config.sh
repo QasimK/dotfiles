@@ -48,9 +48,9 @@ export VIMINIT='let $MYVIMRC="'"${XDG_CONFIG_HOME:-$HOME/.config}"'/vim/vimrc" |
 # Add local executables to $PATH (temporarily until .pam_environment is configured)
 
 # My scripts
-export PATH="$HOME/s:${PATH}"
+export PATH="$HOME/s:$HOME/sp:${PATH}"
 # Binaries
-export PATH="$HOME/.local/bin:$HOME/s:${PATH}"
+export PATH="$HOME/.local/bin:${PATH}"
 # Rust tools
 export PATH="$HOME/.rustup:$HOME/.cargo/bin:${PATH}"
 # RVM
