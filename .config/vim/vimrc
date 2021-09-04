@@ -1,6 +1,6 @@
-" <F2> to toggle between copy-and-paste that Just Works (TM)
-" OR: use gvim
+" https://vim.help/
 
+" <F2> to toggle between copy-and-paste that Just Works (TM) (OR: use gvim)
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
@@ -32,6 +32,9 @@ set incsearch           " Incremental search
 set autowrite           " Automatically save before commands like :next and :make
 set hidden              " Hide buffers when they are abandoned
 set mouse=a             " Enable mouse usage (all modes)
+
+" Fix colour scheme
+set background=dark
 
 " Syntax highlighting
 if !exists("g:syntax_on")
