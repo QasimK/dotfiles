@@ -4,4 +4,14 @@
 # -i NONE - no config file
 # -u DEFAULTS - default init
 # -U DEFAULTS - default GUI init
-exec vim -i NONE -u DEFAULTS -U DEFAULTS -n --noplugin --cmd 'set noswapfile' --cmd 'set nobackup' --cmd 'set nowritebackup' --cmd 'set noundofile' "$@"
+exec vim \
+    -i NONE \
+    -u DEFAULTS \
+    -U DEFAULTS \
+    -n --noplugin \
+    --cmd 'set noswapfile' \
+    --cmd 'set nobackup' \
+    --cmd 'set nowritebackup' \
+    --cmd 'set noundofile' \
+    --cmd 'set background=dark' \
+    "$@"
