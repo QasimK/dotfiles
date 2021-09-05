@@ -23,9 +23,7 @@
 .config/bash/local.sh
 
 !.config/fish/
-.config/fish/fishd.*
 .config/fish/fish_variables
-!.config/fish/conf.d
 
 !.config/git/
 .config/git/config.local

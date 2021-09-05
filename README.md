@@ -41,7 +41,7 @@ Requires further configuration:
 
 ## Fish
 
-Includes bespoke commands - view at `~/.config/fish/functions`.
+Includes bespoke commands (including abbrevations) - view at `~/.config/fish/functions`.
 
 This includes integrating other optional tools with fish.
 
@@ -49,7 +49,7 @@ This does not include common user paths, e.g.:
 
     set -U fish_user_paths ~/.local/bin $fish_user_paths
 
-Includes local configuration at `~/.config/fish/conf.d/local.fish`.
+Includes further configuration for private shells at `~/.config/fish/private.fish`.
 
 ## Git
 

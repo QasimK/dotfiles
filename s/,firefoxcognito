@@ -1,8 +1,7 @@
 #!/bin/sh
 # Start Firefox with a temporary profile
-
 set -eu
 
 PROFILEDIR=$(mktemp -p /tmp -d tmp-ff-profile.XXXXXX.d)
 trap 'rm -rf "$PROFILEDIR"' EXIT HUP INT QUIT TERM
-firefox -profile "$PROFILEDIR" -no-remote -new-instance -private-window
+firefox -profile "$PROFILEDIR" -no-remote -new-instance -private-window "${1-https://duckduckgo.com/?q=my+ip&ia=answer}"
