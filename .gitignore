@@ -22,6 +22,8 @@
 !.config/bash/
 .config/bash/local.sh
 
+!.config/firefox/
+
 !.config/fish/
 .config/fish/fish_variables
 

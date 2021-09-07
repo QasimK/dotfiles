@@ -1,0 +1,9 @@
+#!/bin/sh
+# Start Firefox with a temporary profile
+set -eu
+
+PROFILEDIR="$(mktemp -p /tmp -d tmp-ff-profile.XXXXXX.d)"
+trap 'rm -rf "$PROFILEDIR"' EXIT HUP INT QUIT TERM
+sed '/\/\/SEDMARK/,$d' ~/.config/firefox/user.js > "$PROFILEDIR/user.js"
+cp ~/.config/firefox/search.json.mozlz4 "$PROFILEDIR"
+firefox -profile "$PROFILEDIR" -no-remote -private-window "${1-https://duckduckgo.com/?q=my+ip&ia=answer}"
