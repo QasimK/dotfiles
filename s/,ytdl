@@ -1,0 +1,2 @@
+#!/usr/bin/dash
+exec youtube-dl --no-mtime --write-info-json --add-metadata --write-sub --sub-lang en --embed-subs -o '%(upload_date)s-%(title)s-%(id)s.%(ext)s' -- "$@"

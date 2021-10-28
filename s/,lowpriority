@@ -1,0 +1,2 @@
+#!/usr/bin/dash
+exec nice -n19 ionice -n7 "$@"

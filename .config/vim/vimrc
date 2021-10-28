@@ -46,8 +46,8 @@ filetype plugin indent on
 " Save files as sudo with ":w!!" when forgetting to start vim with sudo
 cmap w!! w !sudo tee > /dev/null %
 
-" Adjust netrw browser to do something...
-let g:netrw_banner = 0
+" Disable history because I don't know how to use it
+let g:netrw_dirhistmax = 0
 
 " Conform to XDG Base Directory spec
 if !empty($XDG_DATA_HOME)

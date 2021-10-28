@@ -7,12 +7,19 @@ function n --wraps nnn --description 'customised nnn'
         end
     end
 
-    # The default behaviour is to cd on quit (nnn checks if NNN_TMPFILE is set)
-    # To cd on quit only on ^G, remove the "-x" in "set -x":
-    if test -n "$XDG_CONFIG_HOME"
-        set NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
+    # To always cd on quit (rather than on ^G), do "set -x"
+    # Uncomment in next release
+    # if test -n "$TMPDIR"
+    #     set NNN_TMPFILE "$TMPDIR/nnn-$USER.lastd"
+    # else
+    #     set NNN_TMPFILE "/tmp/nnn-$USER.lastd"
+    # end
+    set NNN_TMPFILE "$XDG_CONFIG_HOME/nnn/.lastd"
+
+    if test -n "$TMPDIR"
+        set -x NNN_SEL "$TMPDIR/nnn-$USER.selection"
     else
-        set NNN_TMPFILE "$HOME/.config/nnn/.lastd"
+        set -x NNN_SEL "/tmp/nnn-$USER.selection"
     end
 
     # Requires trash-cli

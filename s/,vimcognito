@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/dash
 # Run vim without leaving traces
 
 # -i NONE - no config file

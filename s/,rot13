@@ -1,3 +1,9 @@
 #!/usr/bin/bash
 # Rotate entered text by 13
-exec tr 'A-Za-z' 'N-ZA-Mn-za-m'
+set -eu
+
+if [ $# -eq 0  ]; then
+    tr 'A-Za-z' 'N-ZA-Mn-za-m'
+else
+    echo "$@" | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+fi
