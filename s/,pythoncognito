@@ -1,0 +1,5 @@
+#!/usr/bin/dash
+# Run python without leaving traces
+
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythoncognito.py"
+exec python "$@"
