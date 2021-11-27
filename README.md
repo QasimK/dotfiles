@@ -68,6 +68,8 @@ Includes bespoke aliases - view with `git alias`.
 Includes bespoke customisiation - `GIT_ALLOW_MASTER=y` will allow pushing to
 master.
 
+Includes easy cloning: e.g. `git clone aur:package`, or `gh:user/repo`.
+
 ## PDB
 
 Includes bespoke commands - view with `view ~/.pdbrc`.
