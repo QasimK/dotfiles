@@ -9,6 +9,7 @@ exec vim \
     -u DEFAULTS \
     -U DEFAULTS \
     -n --noplugin \
+    --cmd 'set viminfo=' \
     --cmd 'set noswapfile' \
     --cmd 'set nobackup' \
     --cmd 'set nowritebackup' \
