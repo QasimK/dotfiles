@@ -1,4 +1,4 @@
-// Optionally append user.privacy.js with this file.
+// See https://github.com/arkenfox/user.js
 
 /*********
   Firefox 
