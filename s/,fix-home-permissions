@@ -1,0 +1,4 @@
+#!/usr/bin/dash
+# Restrict access to only the user for a folder in home
+find "$@" -type d -execdir chmod --preserve-root 0750 '{}' \+
+find "$@" -type f -execdir chmod --preserve-root 0640 '{}' \+

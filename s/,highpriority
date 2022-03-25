@@ -1,0 +1,7 @@
+#!/usr/bin/dash
+# Note this doesn't do much:
+# - ionice is ineffective with deadline scheduler
+# - non-privileged users cannot make a process less nice
+echo ",highpriority is ineffective (do not use)"
+exit 1
+exec nice -n -10 ionice -n0 "$@"
