@@ -17,6 +17,7 @@
 
 [push]
     default = simple
+    autoSetupRemote = true
 
 [commit]
     template = ~/.config/git/commit.template

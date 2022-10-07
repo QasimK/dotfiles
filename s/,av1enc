@@ -1,0 +1,44 @@
+#!/usr/bin/dash
+# REQUIRES: ffmpeg, av1an, mkvtoolnix-cli, vapoursynth-plugin-lsmashsource
+# Encode films to AV1 with compatibility for direct play in web browsers
+# -crf: higher is poorer quality
+# -cpu-used: higher decreases efficiency / increases performance (NOT multithreading / like preset) [0-8]
+#       See https://i.imgur.com/q9sH4YN.png for cpu-used
+# -denoise-noise-level: enables grain synthesis and helps with banding
+# -row-mt: helps with encoding/decoding performance when more #threads than #tiles
+# -tiles: helps with encoding/decoding performance / reduces efficiency [2x2 1080p/4x2 2160p]
+# -auto-alt-ref: helps with efficiency
+# -lag-in-frames: increases efficiency / reduces performance
+# -g: maximum keyframe interval (default: 9999)
+
+# -c:a copy: passthrough audio (Opus audio is better but unsupported by Apple)
+
+# -map -c:s: both to transcode english subtitles for mp4
+
+# TODO: Check CRF
+# TODO: Check audio is AAC or re-encode
+# TODO: Check subtitles copy okay
+# TODO: Ignore SDH subtitles, defo-keep forced subtitles, keep english subtitles
+# TODO: Find and add additional subtitles
+
+set -eu
+
+ffmpeg -hide_banner -i "$1" -pix_fmt yuv420p10le -c:v libaom-av1 -pass 1 -crf 28 -b:v 0 -cpu-used 4 -denoise-noise-level 25 -row-mt 1 -tiles 2x2 -auto-alt-ref 1 -lag-in-frames 64 -an -f null /dev/null && \
+ffmpeg -hide_banner -i "$1" -pix_fmt yuv420p10le -c:v libaom-av1 -pass 2 -crf 28 -b:v 0 -cpu-used 4 -denoise-noise-level 25 -row-mt 1 -tiles 2x2 -auto-alt-ref 1 -lag-in-frames 64 -movflags +faststart -c:a copy -map 0:s:m:language:eng -c:s mov_text "${1}.mp4"
+
+# For 4k encoding:
+# TODO: check --video-params="" setting. We likely want cpu-used=4. lag-in-frames=64 (48max?)
+# av1an -i <FILE> --video-params="--threads=4 --cpu-used=4 --end-usage=q --bit-depth=10 --tile-columns=1 --tile-rows=0 --lag-in-frames=48 --enable-fwd-kf=1 --enable-keyframe-filtering=2 --arnr-strength=1 --arnr-maxframes=3 --enable-qm=1 --aq-mode=1 --sharpness=1" --audio-params="-an -sn" --concat mkvmerge --target-quality=92 --probes=8 --probing-rate 2 --min-q=28 --max-q=63 --photon-noise=8 --vmaf-path="/usr/share/model/vmaf_4k_v0.6.1.json" --keep --resume --verbose
+#
+
+# 1080p av1
+# av1an -i e03.mkv --video-params="--threads=4 --cpu-used=4 --end-usage=q --bit-depth=10 --tile-columns=1 --tile-rows=0 --lag-in-frames=48 --enable-fwd-kf=1 --enable-keyframe-filtering=2 --arnr-strength=1 --arnr-maxframes=3 --enable-qm=1 --aq-mode=1 --sharpness=1 --width=1920 --height=800" --audio-params="-an -sn" --concat mkvmerge --target-quality=95 --probes=8 --probing-rate 2 --min-q=28 --max-q=63 --photon-noise=8 --chunk-order random --keep --resume --verbose --vmaf
+
+# POST ENCODING AOM
+# ffmpeg -hide_banner -y -i name.mkv -i name_aom.mkv -movflags +faststart -map 1:v -c:v copy \
+# -map 0:a -c:a libopus -ac 2 -b:a 64k -vbr on \
+# -map 0:s:m:language:eng -map -0:s:m:title:SDH -c:s mov_text name.mp4
+
+
+# Get subtitles
+# ffprobe -loglevel error -select_streams s -show_entries stream=index:disposition=default,forced:stream_tags=title,language <FILE>

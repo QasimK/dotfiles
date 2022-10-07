@@ -1,0 +1,3 @@
+#!/usr/bin/dash
+echo 19 > /proc/self/autogroup
+exec nice -n19 ionice -n7 "$@"

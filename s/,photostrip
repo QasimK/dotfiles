@@ -1,0 +1,3 @@
+#!/usr/bin/dash
+# Strip all metadata from a photo except orientation
+exec exiftool -all:all= -tagsfromfile @ -exif:Orientation -ColorSpaceTags "$@"
