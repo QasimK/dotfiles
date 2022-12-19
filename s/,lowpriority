@@ -1,2 +1,5 @@
 #!/usr/bin/dash
-exec nice -n19 ionice -n7 "$@"
+# See https://old.reddit.com/r/linux/comments/d7hx2c/A
+# See https://lkml.iu.edu/hypermail/linux/kernel/1611.3/00766.html
+# See man sched
+,_lowpriority "$@"
